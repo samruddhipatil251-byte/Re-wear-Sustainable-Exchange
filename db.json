@@ -1,0 +1,76 @@
+{
+  "clothes": [
+    {
+      "id": 1,
+      "name": "Vintage Denim Jacket",
+      "category": "Outerwear",
+      "condition": "Good",
+      "size": "M",
+      "location": "Mumbai",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 2,
+      "name": "Linen Button-up",
+      "category": "Tops",
+      "condition": "Like New",
+      "size": "S",
+      "location": "Pune",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 3,
+      "name": "Chunky Wool Sweater",
+      "category": "Knitwear",
+      "condition": "Good",
+      "size": "L",
+      "location": "Mumbai",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 4,
+      "name": "Floral Summer Dress",
+      "category": "Dresses",
+      "condition": "Like New",
+      "size": "S",
+      "location": "Delhi",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 5,
+      "name": "Corduroy Trousers",
+      "category": "Bottoms",
+      "condition": "Well-loved",
+      "size": "M",
+      "location": "Bengaluru",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 6,
+      "name": "Silk Scarf",
+      "category": "Accessories",
+      "condition": "New",
+      "size": "One Size",
+      "location": "Mumbai",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 7,
+      "name": "Leather Ankle Boots",
+      "category": "Footwear",
+      "condition": "Good",
+      "size": "8",
+      "location": "Pune",
+      "image": "PASTE_LINK_HERE"
+    },
+    {
+      "id": 8,
+      "name": "Graphic Tee",
+      "category": "Tops",
+      "condition": "Well-loved",
+      "size": "L",
+      "location": "Delhi",
+      "image": "PASTE_LINK_HERE"
+    }
+  ]
+}

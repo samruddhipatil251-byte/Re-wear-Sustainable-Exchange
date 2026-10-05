@@ -1,0 +1,353 @@
+/* ============================================
+   ReWear — Design Tokens
+   Concept: clothing swing-tags, stitched seams,
+   thrifted-wardrobe palette. Not a shopping app —
+   a swap meet.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  /* color */
+  --ink: #1E2A1F;          /* deep forest — primary text / dark sections */
+  --paper: #EEEEDF;        /* pale sage-linen — main background */
+  --paper-raised: #F7F6EC; /* card surface, slightly lighter than paper */
+  --gold: #C99A3B;         /* mustard — primary accent, tag stitching */
+  --rose: #B8536B;         /* berry rose — secondary accent */
+  --thread: #6B7F5E;       /* sage thread — dividers, stitch lines */
+  --ink-soft: #4B5A46;     /* muted ink for secondary text */
+
+  /* type */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--thread);
+}
+
+a { color: inherit; }
+
+/* stitched divider — dashed seam instead of a plain hairline */
+.stitch-divider {
+  border: none;
+  border-top: 2px dashed var(--thread);
+  opacity: 0.45;
+  margin: 0;
+}
+
+/* ============ Navbar ============ */
+.navbar-rewear {
+  background: var(--ink) !important;
+  padding: 0.9rem 0;
+}
+.navbar-rewear .navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--paper) !important;
+  letter-spacing: 0.01em;
+}
+.navbar-rewear .navbar-brand::after {
+  content: '';
+}
+.navbar-rewear .nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--paper) !important;
+  opacity: 0.8;
+  margin: 0 0.4rem;
+}
+.navbar-rewear .nav-link:hover,
+.navbar-rewear .nav-link.active {
+  opacity: 1;
+  color: var(--gold) !important;
+}
+.btn-rewear {
+  background: var(--gold);
+  color: var(--ink) !important;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn-rewear:hover { background: #dcae4d; transform: translateY(-1px); color: var(--ink); }
+
+.btn-rewear-outline {
+  background: transparent;
+  border: 1.5px solid var(--paper);
+  color: var(--paper) !important;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius);
+}
+.btn-rewear-outline:hover { border-color: var(--gold); color: var(--gold) !important; }
+
+/* ============ Hero: hanging swing-tag ============ */
+.hero {
+  background: var(--ink);
+  padding: 5rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .hero-sub {
+  color: var(--paper);
+  opacity: 0.7;
+  max-width: 34rem;
+}
+
+.swing-tag {
+  background: var(--paper-raised);
+  border-radius: 10px;
+  padding: 2.2rem 2.4rem 2rem;
+  position: relative;
+  max-width: 30rem;
+  transform: rotate(-3deg);
+  animation: swing-in 1.1s cubic-bezier(.2,.8,.2,1) both;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45);
+}
+.swing-tag::before {
+  /* punch hole */
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 2.4rem;
+  width: 20px;
+  height: 20px;
+  background: var(--ink);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--paper);
+}
+.swing-tag::after {
+  /* string */
+  content: '';
+  position: absolute;
+  top: -46px;
+  left: calc(2.4rem + 8px);
+  width: 2px;
+  height: 34px;
+  background: var(--thread);
+  transform: rotate(8deg);
+}
+.swing-tag .display {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 1.08;
+}
+.swing-tag .tag-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--thread);
+  letter-spacing: 0.08em;
+}
+
+@keyframes swing-in {
+  0% { opacity: 0; transform: rotate(-12deg) translateY(-20px); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: rotate(-3deg) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swing-tag { animation: none; }
+}
+
+/* ============ Sections ============ */
+.section { padding: 5rem 0; }
+.section-tight { padding: 3.5rem 0; }
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 0.5rem;
+}
+
+/* Impact stat tags */
+.impact-tag {
+  background: var(--paper-raised);
+  border: 1.5px dashed var(--thread);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem;
+  height: 100%;
+}
+.impact-tag .stat {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: var(--rose);
+  line-height: 1;
+}
+.impact-tag .stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Clothing card (tag-styled product card) */
+.cloth-card {
+  background: var(--paper-raised);
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(30,42,31,0.08);
+}
+.cloth-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px -18px rgba(30,42,31,0.35);
+}
+.cloth-card .cloth-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  background: #ddd8c4;
+}
+.cloth-card .cloth-body { padding: 1rem 1.1rem 1.2rem; }
+.cloth-card .cloth-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--thread);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cloth-card h3 {
+  font-size: 1.15rem;
+  margin: 0.2rem 0 0.3rem;
+}
+.badge-condition {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Why choose - feature rows */
+.feature-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.4rem 0;
+}
+.feature-row .feature-mark {
+  font-family: var(--font-mono);
+  color: var(--gold);
+  font-size: 0.85rem;
+  min-width: 2.4rem;
+}
+
+/* SDG section */
+.sdg-panel {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 10px;
+  padding: 3rem;
+}
+.sdg-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  border: 1px solid rgba(238,238,223,0.35);
+  border-radius: 20px;
+  padding: 0.35rem 0.8rem;
+  display: inline-block;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+}
+
+/* Footer */
+.footer-rewear {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3rem 0 1.5rem;
+}
+.footer-rewear a.nav-link {
+  color: var(--paper);
+  opacity: 0.75;
+  padding: 0.2rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+.footer-rewear a.nav-link:hover { opacity: 1; color: var(--gold); }
+.footer-fine {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  opacity: 0.55;
+}
+
+/* ============ Browse page ============ */
+.search-bar {
+  background: var(--paper-raised);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  border: 1px solid rgba(30,42,31,0.08);
+}
+.search-bar .form-control,
+.search-bar .form-select {
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(30,42,31,0.15);
+  font-family: var(--font-body);
+}
+.search-bar .form-control:focus,
+.search-bar .form-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,154,59,0.2);
+}
+.filter-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: transparent;
+  border: 1.5px solid var(--thread);
+  color: var(--ink);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+}
+.filter-chip.active,
+.filter-chip:hover {
+  background: var(--thread);
+  color: var(--paper);
+}
+.results-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* focus visibility across site */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
